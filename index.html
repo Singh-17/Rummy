@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play Rummy Online</title>
+    <meta name="description" content="A free online rummy game" />
+    <meta property="og:title" content="Rummy" />
+    <meta property="og:site_name" content="Rummy"/>
+    <meta property="og:url" content="http://www.cecese.com/rummy/" />
+    <meta property="og:description" content="A free online rummy game" />
+    <meta property="og:image" content="http://www.cecese.com/rummy/images/preview.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:image:src" content="http://www.cecese.com/rummy/images/preview.jpg" />
+    <meta name="viewport" content="user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <link rel="stylesheet" href="styles/all.css" />
+
+    <link rel="shortcut icon" href="/rummy/images/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/rummy/images/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon" sizes="114x114" href="/rummy/images/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon" sizes="72x72" href="/rummy/images/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon" sizes="144x144" href="/rummy/images/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon" sizes="60x60" href="/rummy/images/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon" sizes="120x120" href="/rummy/images/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon" sizes="76x76" href="/rummy/images/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="/rummy/images/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/rummy/images/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/rummy/images/favicon-160x160.png" sizes="160x160" />
+    <link rel="icon" type="image/png" href="/rummy/images/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/rummy/images/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/rummy/images/favicon-32x32.png" sizes="32x32"/>
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="msapplication-TileImage" content="/rummy/images/mstile-144x144.png" />
+    <meta name="msapplication-config" content="/rummy/images/browserconfig.xml" />
+  </head>
+  <body>
+    <div class="card _A spade"></div>
+    <div class="card _2 spade"></div>
+    <div class="card _3 spade"></div>
+    <div class="card _4 spade"></div>
+    <div class="card _5 spade"></div>
+    <div class="card _6 spade"></div>
+    <div class="card _7 spade"></div>
+    <div class="card _8 spade"></div>
+    <div class="card _9 spade"></div>
+    <div class="card _10 spade"></div>
+    <div class="card _J spade"></div>
+    <div class="card _Q spade"></div>
+    <div class="card _K spade"></div>
+
+    <div class="card _A heart"></div>
+    <div class="card _2 heart"></div>
+    <div class="card _3 heart"></div>
+    <div class="card _4 heart"></div>
+    <div class="card _5 heart"></div>
+    <div class="card _6 heart"></div>
+    <div class="card _7 heart"></div>
+    <div class="card _8 heart"></div>
+    <div class="card _9 heart"></div>
+    <div class="card _10 heart"></div>
+    <div class="card _J heart"></div>
+    <div class="card _Q heart"></div>
+    <div class="card _K heart"></div>
+
+    <div class="card _A diamond"></div>
+    <div class="card _2 diamond"></div>
+    <div class="card _3 diamond"></div>
+    <div class="card _4 diamond"></div>
+    <div class="card _5 diamond"></div>
+    <div class="card _6 diamond"></div>
+    <div class="card _7 diamond"></div>
+    <div class="card _8 diamond"></div>
+    <div class="card _9 diamond"></div>
+    <div class="card _10 diamond"></div>
+    <div class="card _J diamond"></div>
+    <div class="card _Q diamond"></div>
+    <div class="card _K diamond"></div>
+
+    <div class="card _A club"></div>
+    <div class="card _2 club"></div>
+    <div class="card _3 club"></div>
+    <div class="card _4 club"></div>
+    <div class="card _5 club"></div>
+    <div class="card _6 club"></div>
+    <div class="card _7 club"></div>
+    <div class="card _8 club"></div>
+    <div class="card _9 club"></div>
+    <div class="card _10 club"></div>
+    <div class="card _J club"></div>
+    <div class="card _Q club"></div>
+    <div class="card _K club"></div>
+
+    <div class="icon-spinner restart-button" title="Restart Game" id="restartButton"></div>
+    <div class="help-button" title="Instructions" id="helpButton">?</div>
+
+    <div class="modal instructions" id="instructionModal">
+      <div class="instructionHeading">Goal:</div>
+      <p>Get rid of all your cards before your opponent does.</p>
+      <p>You get rid of cards by forming a "set" or a "run".</p>
+      <p>A set is 3 or more cards that are the same rank.</p>
+      <p>Example: (6 of spades, 6 of hearts, and 6 of diamonds)</p>
+      <p>A run is 3 or more cards of the same suit that are ordered with no gaps.</p>
+      <p>Example: (9 of hearts, 10 of hearts, Jack of hearts)</p>
+      <p>When you have a set or run in your hand it will be taken from your hand and laid down on the table automatically.</p>
+      <p>Either player can then add to the sets or runs which have already been laid down.</p>
+      <p>Once a player has laid down all of their cards, the other player's cards are scored.</p>
+      <div class="instructionHeading">Scoring:</div>
+      <div class="scoreCategory">Face cards: 10 points</div>
+      <div class="scoreCategory">Aces: 1 point</div>
+      <div class="scoreCategory">All others: face value (3 = 3 point, 7 = 7 points, etc.)</div>
+      <p>Hands are continued to be dealt until one of the players reaches 100 points, at which point they lose the game.</p>
+      <input class="button" type="button" value="Done" />
+      <div class="feedback">
+        Please send feedback to <a id="emailAddress" href=""></a>
+      </div>
+    </div>
+
+    <div class="orientationWarning preload">
+      <span class="">For the best experience we recommend playing in landscape orientation</span>
+    </div>
+
+    <div class="modal preload" id="winnerModal">
+      <div class="gameResult">You Won!</div>
+      <div class="scores">
+        <div class="score">
+          <span class="player">Opponent:</span><span class="value" id="winnerOpponentScore">0</span>
+        </div>
+        <div class="score">
+          <span class="player">You:</span><span class="value" id="winnerYourScore">0</span>
+        </div>
+      </div>
+      <div class="tip" id="winnerBestScore">
+        <span>Your best score:</span>
+        <span id="winnerScoreValue"></span>
+      </div>
+
+      <input class="button" type="button" value="Play Again" />
+    </div>
+
+    <div class="arrow stock icon-arrow-up-right"></div>
+    <div class="arrow discard icon-arrow-up-right"></div>
+
+    <div class="modal preload" id="continueModal">
+      <div class="cumulativeScore">Cumulative Score</div>
+      <div class="scores">
+        <div class="score">
+          <span class="player">Opponent:</span><span class="value" id="continueOpponentScore">0</span>
+        </div>
+        <div class="score">
+          <span class="player">You:</span><span class="value" id="continueYourScore">0</span>
+        </div>
+      </div>
+
+      <div class="tip">First to 100 loses!</div>
+      <div class="tip hide" id="bestScore">
+        <span>Your best score:</span>
+        <span id="scoreValue"></span>
+      </div>
+
+      <input class="button" type="button" value="Continue" />
+    </div>
+
+    <span class="computerScore">SCORE: 
+      <span class="scoreValue">0</span>
+    </span>
+    <span class="playerScore">SCORE: 
+      <span class="scoreValue">0</span>
+    </span>
+
+    
+    <!-- JavaScript -->
+    <script type="text/javascript" src="scripts/fastclick.js"></script>
+    <script type="text/javascript" src="scripts/modernizr.js"></script>
+    <script type="text/javascript" src="scripts/resizeend.js"></script>
+    <script type="text/javascript" src="scripts/states.js"></script>
+    <script type="text/javascript" src="scripts/domMap.js"></script>
+    <script type="text/javascript" src="scripts/card.js"></script>
+    <script type="text/javascript" src="scripts/deck.js"></script>
+    <script type="text/javascript" src="scripts/player.js"></script>
+    <script type="text/javascript" src="scripts/hand.js"></script>
+    <script type="text/javascript" src="scripts/game.js"></script>
+    <script type="text/javascript" src="scripts/app.js"></script>
+    
+  </body>
+</html>

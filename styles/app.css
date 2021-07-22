@@ -1,0 +1,275 @@
+.ad {
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -300px;
+}
+
+body {
+  margin: 0;
+  background-image: url('../images/wood.jpg');
+}
+
+.playerHand {
+  transform-origin: 72px 800px;
+}
+
+.computerHand {
+  transform-origin: 72px -800px;
+}
+
+.meld {
+  transform-origin: 0px 0px;
+}
+
+.computerScore, .playerScore {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-39px);
+  color: yellow;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  z-index: 3;
+}
+
+.recentered {
+  left: 53% !important;
+}
+
+.computerScore {
+  top: 7px;
+}
+
+.playerScore {
+  bottom: 7px;
+}
+
+.scoreValue {
+  color: white;
+}
+
+.tip {
+  font-style: italic;
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.modal > .tip {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.modal {
+  background-color: #100;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  padding: 81px 28px 28px 28px;
+  top: 29%;
+  z-index: 9999;
+  transition: all .4s ease-out;
+  transform: translateX(-201%) translateZ(2px);
+  font-size: 40px;
+  font-family: Arial,sans-serif;
+  font-weight: 700;
+  color: #FFF;
+  box-sizing: border-box;
+}
+
+.cumulativeScore, .gameResult {
+  text-align: center;
+  font-weight: bold;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 7px;
+  box-sizing: border-box;
+  border-top: 2px solid #494C47;
+}
+
+.cumulativeScore {
+  font-size: 25px;
+  color: white;
+  background-color: #4B4B4B;
+  text-shadow: 1px 1px 9px #000;
+}
+
+.gameResult {
+  font-size: 30px;
+  color: black;
+  background-color: white;
+}
+
+.scores {
+  display: table;
+  width: 100%;
+}
+
+.scores > .score {
+  display: table-row;
+}
+
+.score > .player, .score > .value {
+  display: table-cell;
+  width: 52px;
+}
+
+.score > .value {
+  text-align: right;
+}
+
+.score > .player {
+  padding-left: 18px;
+  padding-bottom: 6px;
+}
+
+.button {
+  outline: 0;
+  font-size: 30px;
+  border-radius: 5px;
+  color: #FFF;
+  text-shadow: #000 2px 2px;
+  padding: 4px 15px 8px 15px;
+  margin: 32px auto 5px auto;
+  display: block;
+  cursor: pointer;
+
+  border:1px solid #36a500; 
+  text-decoration:none; 
+  background-color: #48DD00; background-image: -webkit-gradient(linear, left top, left bottom, from(#48DD00), to(#297D00));
+  background-image: -webkit-linear-gradient(top, #48DD00, #297D00);
+  background-image: -moz-linear-gradient(top, #48DD00, #297D00);
+  background-image: -ms-linear-gradient(top, #48DD00, #297D00);
+  background-image: -o-linear-gradient(top, #48DD00, #297D00);
+  background-image: linear-gradient(to bottom, #48DD00, #297D00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#48DD00, endColorstr=#297D00);
+}
+
+@media (max-height: 700px) {
+  .arrow {
+    display: none;
+  }  
+}
+@media (max-height: 750px) {
+  .arrow {
+    font-size: 32px;
+  }
+}
+@media (min-height: 751px) {
+  .arrow {
+    font-size: 50px;
+  }
+}
+
+.arrow {
+  color: #D3D3D3;
+  position: absolute;
+  text-shadow: 0 0 33px #FFF;
+  transition: all .3s ease-in-out;
+}
+
+.arrow.stock {
+  transform: rotateZ(105deg);
+}
+
+.arrow.discard {
+  transform: rotateZ(165deg);
+}
+
+.arrow.discard.rotated {
+  transform: rotateZ(-17deg);  
+}
+
+.orientationWarning {
+  display: none;
+  background-color: #F00;
+  position: absolute;
+  width: 75%;
+  padding: 28px;
+  left: 0;
+  right: 0;
+  top: 20px;
+  z-index: 9999;
+  margin: auto;
+  box-sizing: border-box;
+  font-size: 40px;
+  font-family: Arial,sans-serif;
+  font-weight: 700;
+  color: #FFF;
+  text-align: center;
+  transform: translateZ(2px);
+}
+
+.preload {
+  transition: all 0s linear !important;
+}
+
+.restart-button, .help-button {
+  position: absolute;
+  color: #9E9E9E;
+  cursor: pointer;
+  transition: color .2s linear;
+  border: 1px solid #9E9E9E;
+  border-radius: 25px;
+  padding: 7px;
+  height: 23px;
+  width: 23px;
+}
+
+.restart-button:hover, .help-button:hover {
+  transition: color 0s linear;
+  color: white;
+  border: 1px solid white;
+}
+
+.restart-button{
+  top: 10px;
+  right: 65px;
+  font-size: 24px;
+}
+
+.help-button {
+  top: 10px;
+  right: 20px;
+  font-family: Arial;
+  font-size: 34px;
+  padding-top: 0;
+  padding: 0 4px 14px 9px;
+}
+
+.instructions {
+  font-size: 16px;
+  padding: 20px 30px;
+  top: 6%;
+  font-weight: normal;
+  width: 60%;
+}
+
+.instructions p {
+  margin-left: 15px;
+}
+
+.instructionHeading {
+  font-weight: bold;
+}
+
+.scoreCategory {
+  margin-left: 15px;
+}
+
+.feedback {
+  text-align: center;
+  padding: 22px 0 10px 0;
+}
+
+.feedback a {
+  color: #8CF;
+  text-decoration: none;
+}
+
+.hide {
+  display: none;
+}

@@ -1,0 +1,574 @@
+.ad {
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  right: 20px;
+  margin-top: -300px;
+}
+
+body {
+  margin: 0;
+  background-image: url('../images/wood.jpg');
+}
+
+.playerHand {
+  -webkit-transform-origin: 72px 800px;
+  -ms-transform-origin: 72px 800px;
+  transform-origin: 72px 800px;
+}
+
+.computerHand {
+  -webkit-transform-origin: 72px -800px;
+  -ms-transform-origin: 72px -800px;
+  transform-origin: 72px -800px;
+}
+
+.meld {
+  -webkit-transform-origin: 0px 0px;
+  -ms-transform-origin: 0px 0px;
+  transform-origin: 0px 0px;
+}
+
+.computerScore,
+.playerScore {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-39px);
+  -ms-transform: translateX(-39px);
+  transform: translateX(-39px);
+  color: yellow;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+  z-index: 3;
+}
+
+.recentered {
+  left: 53% !important;
+}
+
+.computerScore {
+  top: 7px;
+}
+
+.playerScore {
+  bottom: 7px;
+}
+
+.scoreValue {
+  color: white;
+}
+
+.tip {
+  font-style: italic;
+  font-size: 17px;
+  font-weight: normal;
+}
+
+.modal > .tip {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.modal {
+  background-color: #100;
+  position: absolute;
+  width: 50%;
+  left: 50%;
+  padding: 81px 28px 28px 28px;
+  top: 29%;
+  z-index: 9999;
+  -webkit-transition: all .4s ease-out;
+  transition: all .4s ease-out;
+  -webkit-transform: translateX(-201%) translateZ(2px);
+  -ms-transform: translateX(-201%) translateZ(2px);
+  transform: translateX(-201%) translateZ(2px);
+  font-size: 40px;
+  font-family: Arial,sans-serif;
+  font-weight: 700;
+  color: #FFF;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cumulativeScore,
+.gameResult {
+  text-align: center;
+  font-weight: bold;
+  font-family: Tahoma, Verdana, Segoe, sans-serif;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 7px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 2px solid #494C47;
+}
+
+.cumulativeScore {
+  font-size: 25px;
+  color: white;
+  background-color: #4B4B4B;
+  text-shadow: 1px 1px 9px #000;
+}
+
+.gameResult {
+  font-size: 30px;
+  color: black;
+  background-color: white;
+}
+
+.scores {
+  display: table;
+  width: 100%;
+}
+
+.scores > .score {
+  display: table-row;
+}
+
+.score > .player,
+.score > .value {
+  display: table-cell;
+  width: 52px;
+}
+
+.score > .value {
+  text-align: right;
+}
+
+.score > .player {
+  padding-left: 18px;
+  padding-bottom: 6px;
+}
+
+.button {
+  outline: 0;
+  font-size: 30px;
+  border-radius: 5px;
+  color: #FFF;
+  text-shadow: #000 2px 2px;
+  padding: 4px 15px 8px 15px;
+  margin: 32px auto 5px auto;
+  display: block;
+  cursor: pointer;
+  border: 1px solid #36a500;
+  text-decoration: none;
+  background-color: #48DD00;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#48DD00), to(#297D00));
+  background-image: -webkit-linear-gradient(top, #48DD00, #297D00);
+  background-image: linear-gradient(to bottom, #48DD00, #297D00);
+  filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#48DD00, endColorstr=#297D00);
+}
+
+@media (max-height: 700px) {
+  .arrow {
+    display: none;
+  }
+}
+
+@media (max-height: 750px) {
+  .arrow {
+    font-size: 32px;
+  }
+}
+
+@media (min-height: 751px) {
+  .arrow {
+    font-size: 50px;
+  }
+}
+
+.arrow {
+  color: #D3D3D3;
+  position: absolute;
+  text-shadow: 0 0 33px #FFF;
+  -webkit-transition: all .3s ease-in-out;
+  transition: all .3s ease-in-out;
+}
+
+.arrow.stock {
+  -webkit-transform: rotateZ(105deg);
+  -ms-transform: rotateZ(105deg);
+  transform: rotateZ(105deg);
+}
+
+.arrow.discard {
+  -webkit-transform: rotateZ(165deg);
+  -ms-transform: rotateZ(165deg);
+  transform: rotateZ(165deg);
+}
+
+.arrow.discard.rotated {
+  -webkit-transform: rotateZ(-17deg);
+  -ms-transform: rotateZ(-17deg);
+  transform: rotateZ(-17deg);
+}
+
+.orientationWarning {
+  display: none;
+  background-color: #F00;
+  position: absolute;
+  width: 75%;
+  padding: 28px;
+  left: 0;
+  right: 0;
+  top: 20px;
+  z-index: 9999;
+  margin: auto;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  font-size: 40px;
+  font-family: Arial,sans-serif;
+  font-weight: 700;
+  color: #FFF;
+  text-align: center;
+  -webkit-transform: translateZ(2px);
+  -ms-transform: translateZ(2px);
+  transform: translateZ(2px);
+}
+
+.preload {
+  -webkit-transition: all 0s linear !important;
+  transition: all 0s linear !important;
+}
+
+.restart-button,
+.help-button {
+  position: absolute;
+  color: #9E9E9E;
+  cursor: pointer;
+  -webkit-transition: color .2s linear;
+  transition: color .2s linear;
+  border: 1px solid #9E9E9E;
+  border-radius: 25px;
+  padding: 7px;
+  height: 23px;
+  width: 23px;
+}
+
+.restart-button:hover,
+.help-button:hover {
+  -webkit-transition: color 0s linear;
+  transition: color 0s linear;
+  color: white;
+  border: 1px solid white;
+}
+
+.restart-button {
+  top: 10px;
+  right: 65px;
+  font-size: 24px;
+}
+
+.help-button {
+  top: 10px;
+  right: 20px;
+  font-family: Arial;
+  font-size: 34px;
+  padding-top: 0;
+  padding: 0 4px 14px 9px;
+}
+
+.instructions {
+  font-size: 16px;
+  padding: 20px 30px;
+  top: 6%;
+  font-weight: normal;
+  width: 60%;
+}
+
+.instructions p {
+  margin-left: 15px;
+}
+
+.instructionHeading {
+  font-weight: bold;
+}
+
+.scoreCategory {
+  margin-left: 15px;
+}
+
+.feedback {
+  text-align: center;
+  padding: 22px 0 10px 0;
+}
+
+.feedback a {
+  color: #8CF;
+  text-decoration: none;
+}
+
+.hide {
+  display: none;
+}
+.card {
+  background-image: url('../images/cards.png');
+  -webkit-background-size: 2004px 800px;
+  background-size: 2004px 800px;
+  width: 141px;
+  height: 198px;
+  position: absolute;
+  z-index: 2;
+  border: 1px solid #333;
+  border-radius: 10px;
+  -webkit-transition: -webkit-transform .6s ease-out;
+  transition: -webkit-transform .6s ease-out;
+  transition: -ms-transform .6s ease-out;
+  transition: transform .6s ease-out;
+  -webkit-transform: translateX(0px) translateY(0px) rotateZ(0deg);
+  -ms-transform: translateX(0px) translateY(0px) rotateZ(0deg);
+  transform: translateX(0px) translateY(0px) rotateZ(0deg);
+}
+
+.hidden {
+  background-position: -1862px -1px !important;
+}
+
+._A.spade {
+  background-position: -1px -401px;
+}
+
+._2.spade {
+  background-position: -144px -401px;
+}
+
+._3.spade {
+  background-position: -287px -401px;
+}
+
+._4.spade {
+  background-position: -430px -401px;
+}
+
+._5.spade {
+  background-position: -572px -401px;
+}
+
+._6.spade {
+  background-position: -715px -401px;
+}
+
+._7.spade {
+  background-position: -858px -401px;
+}
+
+._8.spade {
+  background-position: -1001px -401px;
+}
+
+._9.spade {
+  background-position: -1143px -401px;
+}
+
+._10.spade {
+  background-position: -1286px -401px;
+}
+
+._J.spade {
+  background-position: -1429px -401px;
+}
+
+._Q.spade {
+  background-position: -1573px -401px;
+}
+
+._K.spade {
+  background-position: -1716px -401px;
+}
+
+._A.heart {
+  background-position: -1px -201px;
+}
+
+._2.heart {
+  background-position: -144px -201px;
+}
+
+._3.heart {
+  background-position: -287px -201px;
+}
+
+._4.heart {
+  background-position: -430px -201px;
+}
+
+._5.heart {
+  background-position: -572px -201px;
+}
+
+._6.heart {
+  background-position: -715px -201px;
+}
+
+._7.heart {
+  background-position: -858px -201px;
+}
+
+._8.heart {
+  background-position: -1001px -201px;
+}
+
+._9.heart {
+  background-position: -1143px -201px;
+}
+
+._10.heart {
+  background-position: -1286px -201px;
+}
+
+._J.heart {
+  background-position: -1429px -201px;
+}
+
+._Q.heart {
+  background-position: -1573px -201px;
+}
+
+._K.heart {
+  background-position: -1716px -201px;
+}
+
+._A.diamond {
+  background-position: -1px -601px;
+}
+
+._2.diamond {
+  background-position: -144px -601px;
+}
+
+._3.diamond {
+  background-position: -287px -601px;
+}
+
+._4.diamond {
+  background-position: -430px -601px;
+}
+
+._5.diamond {
+  background-position: -572px -601px;
+}
+
+._6.diamond {
+  background-position: -715px -601px;
+}
+
+._7.diamond {
+  background-position: -858px -601px;
+}
+
+._8.diamond {
+  background-position: -1001px -601px;
+}
+
+._9.diamond {
+  background-position: -1143px -601px;
+}
+
+._10.diamond {
+  background-position: -1286px -601px;
+}
+
+._J.diamond {
+  background-position: -1429px -601px;
+}
+
+._Q.diamond {
+  background-position: -1573px -601px;
+}
+
+._K.diamond {
+  background-position: -1716px -601px;
+}
+
+._A.club {
+  background-position: -1px -1px;
+}
+
+._2.club {
+  background-position: -144px -1px;
+}
+
+._3.club {
+  background-position: -287px -1px;
+}
+
+._4.club {
+  background-position: -430px -1px;
+}
+
+._5.club {
+  background-position: -572px -1px;
+}
+
+._6.club {
+  background-position: -715px -1px;
+}
+
+._7.club {
+  background-position: -858px -1px;
+}
+
+._8.club {
+  background-position: -1001px -1px;
+}
+
+._9.club {
+  background-position: -1143px -1px;
+}
+
+._10.club {
+  background-position: -1286px -1px;
+}
+
+._J.club {
+  background-position: -1429px -1px;
+}
+
+._Q.club {
+  background-position: -1573px -1px;
+}
+
+._K.club {
+  background-position: -1716px -1px;
+}
+@font-face {
+  font-family: 'icomoon';
+  src: url('../fonts/icomoon.eot?xcckce');
+  src: url('../fonts/icomoon.eot?#iefixxcckce') format('embedded-opentype'),
+    url('../fonts/icomoon.woff?xcckce') format('woff'),
+    url('../fonts/icomoon.ttf?xcckce') format('truetype'),
+    url('../fonts/icomoon.svg?xcckce#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+[class^="icon-"],
+[class*=" icon-"] {
+  font-family: 'icomoon';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  -webkit-font-feature-settings: ;
+  -moz-font-feature-settings: ;
+  font-feature-settings: ;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-spinner:before {
+  content: "\52";
+}
+
+.icon-arrow-up-right:before {
+  content: "\41";
+}
