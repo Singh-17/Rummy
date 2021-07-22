@@ -1,2 +1,9 @@
 # Rummy
-RUMMY
+
+A free online rummy game
+
+========
+
+First Player to get 100 will lose
+
+Playable at
